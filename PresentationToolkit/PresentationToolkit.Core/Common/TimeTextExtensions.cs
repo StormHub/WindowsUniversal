@@ -9,7 +9,7 @@ namespace PresentationToolkit.Core.Common
     /// <summary>
     /// Date/time related extension methods.
     /// </summary>
-    public static class TimeExtensions
+    public static class TimeTextExtensions
     {
         private const int Second = 1;
         private const int Minute = 60 * Second;
@@ -22,7 +22,7 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="dateTime">The <see cref="DateTime"/> to convert.</param>
         /// <returns>The relative time in words for the specified <see cref="DateTime"/></returns>
-        public static string ToRelativeText(this DateTime dateTime)
+        public static string RelativeText(this DateTime dateTime)
         {
             DateTime dateTimeValue = dateTime.Kind == DateTimeKind.Local
                 ? dateTime.ToUniversalTime()
@@ -87,7 +87,7 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> to convert.</param>
         /// <returns>The duration in words.</returns>
-        public static string ToDurationText(this TimeSpan timeSpan)
+        public static string DurationText(this TimeSpan timeSpan)
         {
             // Day part
             string dayPart = null;
@@ -163,7 +163,7 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> to convert.</param>
         /// <returns>The duration in words.</returns>
-        public static string ToFullDurationText(this TimeSpan timeSpan)
+        public static string DurationFullText(this TimeSpan timeSpan)
         {
             var content = new List<string>();
             // Day part
