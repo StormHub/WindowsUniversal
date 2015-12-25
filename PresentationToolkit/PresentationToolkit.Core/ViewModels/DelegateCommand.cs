@@ -21,15 +21,15 @@ namespace PresentationToolkit.Core.ViewModels
         /// Initializes a new instance of <see cref="DelegateCommand"/>.
         /// </summary>
         /// <param name="execute">The command action to execute.</param>
-        /// <param name="canexecute">The command status action to execute.</param>
-        public DelegateCommand(Action execute, Func<bool> canexecute = null)
+        /// <param name="canExecute">The command status action to execute.</param>
+        public DelegateCommand(Action execute, Func<bool> canExecute = null)
         {
             if (execute == null)
             {
                 throw new ArgumentNullException(nameof(execute));
             }
             this.execute = execute;
-            this.canExecute = canexecute ?? (() => true);
+            this.canExecute = canExecute;
         }
 
         /// <summary>
@@ -43,7 +43,8 @@ namespace PresentationToolkit.Core.ViewModels
         {
             try
             {
-                return canExecute();
+                return canExecute == null 
+                    || canExecute();
             }
             catch
             {
