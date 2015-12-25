@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PresentationToolkit.Core.NetPoxy
+namespace PresentationToolkit.Core.HttpRequests
 {
     /// <summary>
     /// Provides client http requests and responses.
@@ -34,7 +34,7 @@ namespace PresentationToolkit.Core.NetPoxy
         /// Requests the Http Get for the uri and reads the contents.
         /// </summary>
         /// <param name="uri">The service uri.</param>
-        /// <returns>The response contentss.</returns>
+        /// <returns>The response contents.</returns>
         public static async Task<string> GetAsync(Uri uri)
         {
             if (uri == null)
@@ -56,7 +56,7 @@ namespace PresentationToolkit.Core.NetPoxy
         /// </summary>
         /// <param name="uri">The service uri.</param>
         /// <param name="postContent">The <see cref="HttpContent"/> to post.</param>
-        /// <returns>The response contentss.</returns>
+        /// <returns>The response contents.</returns>
         public static async Task<string> PostAsync(Uri uri, HttpContent postContent = null)
         {
             if (uri == null)
@@ -79,6 +79,8 @@ namespace PresentationToolkit.Core.NetPoxy
         /// <returns>The response contentss.</returns>
         public async Task<string> GetAsync()
         {
+            EnsureNotDisposed();
+
             HttpResponseMessage response = null;
             try
             {
@@ -102,9 +104,11 @@ namespace PresentationToolkit.Core.NetPoxy
         /// Requests the Http Post for the uri and reads the contents.
         /// </summary>
         /// <param name="postContent">The <see cref="HttpContent"/> to post.</param>
-        /// <returns>The response contentss.</returns>
+        /// <returns>The response contents.</returns>
         public async Task<string> PostAsync(HttpContent postContent = null)
         {
+            EnsureNotDisposed();
+
             HttpResponseMessage response = null;
             try
             {
@@ -124,6 +128,14 @@ namespace PresentationToolkit.Core.NetPoxy
             }
         }
 
+        private void EnsureNotDisposed()
+        {
+            if (isDisposed)
+            {
+                throw new ObjectDisposedException("HttpClientProxy", "Client is already disposed.");
+            }
+        }
+
         /// <summary>
         /// Disposes the current instance.
         /// </summary>
@@ -135,6 +147,7 @@ namespace PresentationToolkit.Core.NetPoxy
             }
 
             client.Dispose();
+            isDisposed = true;
         }
     }
 }

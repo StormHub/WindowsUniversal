@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
-namespace PresentationToolkit.Core.NetPoxy
+namespace PresentationToolkit.Core.HttpRequests
 {
     /// <summary>
     /// Uri http Get/Post related extension methods.
@@ -68,7 +68,7 @@ namespace PresentationToolkit.Core.NetPoxy
         /// </summary>
         /// <param name="uri">The service uri.</param>
         /// <param name="postContent">The <see cref="HttpContent"/> to post.</param>
-        /// <returns>The response contentss.</returns>
+        /// <returns>The response contents.</returns>
         public static Task<string> PostAsync(this Uri uri, HttpContent postContent = null)
         {
             if (uri == null)
