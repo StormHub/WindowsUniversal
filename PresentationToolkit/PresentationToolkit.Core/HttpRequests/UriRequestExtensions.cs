@@ -11,40 +11,6 @@ namespace PresentationToolkit.Core.HttpRequests
     /// </summary>
     public static class UriRequestExtensions
     {
-        /*
-        private static bool ShouldIncludeProperty(string name)
-        {
-            return name != "IsMasked" 
-                && name != "IsManual" 
-                && name != "IsDeleted" 
-                && name != "IsClipped"
-                && name != "HasAudit";
-        }
-
-        private static Type GetPropertyType(string name)
-        {
-            if (name == "LastModified"
-                || name == "CreatedDateTime"
-                || name == "ConfirmedDateTime"
-                || name == "EndDateTime")
-            {
-                return typeof(DateTime);
-            }
-            if (name == "IsVirtual"
-                || name == "IsSplit")
-            {
-                return typeof (bool);
-            }
-
-            return typeof (string);
-        }
-        public static string SplitCamelCase(string stringValue)
-        {
-            return Regex.Replace(Regex.Replace(stringValue, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
-        }
-        
-        */
-        
         /// <summary>
         /// Requests the Http Get for the uri and deserialized the contents by JSON.
         /// </summary>
