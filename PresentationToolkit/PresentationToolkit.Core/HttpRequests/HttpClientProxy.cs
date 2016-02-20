@@ -21,7 +21,7 @@ namespace PresentationToolkit.Core.HttpRequests
         {
             if (uri == null)
             {
-                throw new ArgumentNullException("uri", nameof(uri));
+                throw new ArgumentNullException(nameof(uri));
             }
 
             this.uri = uri;
@@ -61,7 +61,7 @@ namespace PresentationToolkit.Core.HttpRequests
         {
             if (uri == null)
             {
-                throw new ArgumentNullException("uri", nameof(uri));
+                throw new ArgumentNullException(nameof(uri));
             }
 
             string content = null;
