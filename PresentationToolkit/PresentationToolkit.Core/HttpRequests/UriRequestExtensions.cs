@@ -24,7 +24,7 @@ namespace PresentationToolkit.Core.HttpRequests
             }
 
             string content  = await HttpClientProxy.GetAsync(uri);
-            T result = await Task.Run<T>(() => JsonConvert.DeserializeObject<T>(content));
+            T result = await Task.Run(() => JsonConvert.DeserializeObject<T>(content));
 
             return result;
         }

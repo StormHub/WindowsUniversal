@@ -107,6 +107,8 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\TaskHelper.cs" />
+    <Compile Include="Common\TaskRunner.cs" />
     <Compile Include="Common\TimeTextExtensions.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="HttpRequests\HttpClientProxy.cs" />
