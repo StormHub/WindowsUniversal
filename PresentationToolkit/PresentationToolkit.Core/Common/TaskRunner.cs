@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Concurrency;
 using System.Threading.Tasks;
 
 namespace PresentationToolkit.Core.Common
@@ -6,8 +7,8 @@ namespace PresentationToolkit.Core.Common
     public static class TaskRunner
     {
         /// <summary>
-        /// Runs the specified task to finish. If the task completed successfully, the action
-        /// is invoked.
+        /// Runs the specified task to finish. If the task completes successfully, 
+        /// the action is invoked in sync.
         /// </summary>
         /// <typeparam name="T">The task return type.</typeparam>
         /// <param name="task">The task to run.</param>
