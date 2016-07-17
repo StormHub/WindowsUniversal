@@ -6,9 +6,9 @@ namespace PresentationToolkit.Core.Common
     /// <summary>
     /// Provides utility task extensions.
     /// </summary>
-    internal static class AsyncTaskExtensions
+    public static class TaskHelper
     {
-        private static readonly Task emptyTask = From<object>(null);
+        private static readonly Task emptyTask = Task.FromResult<object>(null);
 
         /// <summary>
         /// Gets an empty task instance already completed.
@@ -20,9 +20,9 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="exception">The <see cref="Exception"/> instance.</param>
         /// <returns>The empty task with the specified exception.</returns>
-        public static Task From(Exception exception)
+        public static Task FromException(Exception exception)
         {
-            return From<object>(exception);
+            return FromException<object>(exception);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="exception">The <see cref="Exception"/> instance.</param>
         /// <returns>The empty task with the specified exception.</returns>
-        public static Task<T> From<T>(Exception exception)
+        public static Task<T> FromException<T>(Exception exception)
         {
             var completionSource = new TaskCompletionSource<T>();
             completionSource.Unwrap<T>(exception);
@@ -38,18 +38,12 @@ namespace PresentationToolkit.Core.Common
         }
 
         /// <summary>
-        /// Creates an empty task with the specified result value.
+        /// Executes the action as task with the specified argument.
         /// </summary>
-        /// <typeparam name="T">The result type.</typeparam>
-        /// <param name="value">The result value.</param>
-        /// <returns>The empty task with the specified result value.</returns>
-        public static Task<T> From<T>(T value)
-        {
-            var completionSource = new TaskCompletionSource<T>();
-            completionSource.SetResult(value);
-            return completionSource.Task;
-        }
-
+        /// <typeparam name="T1">The argument type.</typeparam>
+        /// <param name="action">The action to execute.</param>
+        /// <param name="arg">The argument.</param>
+        /// <returns>The empty task.</returns>
         public static Task From<T1>(Action<T1> action, T1 arg)
         {
             try
@@ -59,7 +53,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception excption)
             {
-                return From(excption);
+                return FromException(excption);
             }
         }
 
@@ -102,12 +96,34 @@ namespace PresentationToolkit.Core.Common
         }
 
         /// <summary>
+        /// Creates a task and run the action if completed successfully.
+        /// </summary>
+        /// <param name="activator">The function to creat task.</param>
+        /// <param name="action">The action to execute.</param>
+        /// <returns>The awaitable task.</returns>
+        public static Task Run<T>(Func<Task<T>> activator, Action<T> action)
+        {
+            return TaskRunner<T, object>.Run(activator.Invoke(), action);
+        }
+
+        /// <summary>
+        /// Creates a task and run the action if completed successfully.
+        /// </summary>
+        /// <param name="activator">The function to creat task.</param>
+        /// <param name="action">The action to execute.</param>
+        /// <returns>The awaitable task.</returns>
+        public static Task Run(Func<Task> activator, Action action)
+        {
+            return Run(activator.Invoke(), action);
+        }
+
+        /// <summary>
         /// Continues the task and calls the action once the task completed.
         /// </summary>
         /// <param name="task">The task to generate the result.</param>
         /// <param name="action">The action to call with the task result.</param>
         /// <returns>The continuation task.</returns>
-        internal static Task Run(Task task, Action action)
+        public static Task Run(Task task, Action action)
         {
             var completionSource = new TaskCompletionSource<object>();
             task.ContinueWith(t =>
@@ -131,7 +147,7 @@ namespace PresentationToolkit.Core.Common
                     {
                         completionSource.Unwrap(exception);
                     }
-                }
+                } 
             });
 
             return completionSource.Task;
@@ -163,7 +179,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception exception)
             {
-                return From(exception);
+                return FromException(exception);
             }
         }
 
@@ -221,7 +237,7 @@ namespace PresentationToolkit.Core.Common
         /// </summary>
         /// <param name="task">The task to create another task.</param>
         /// <returns>The unwarpped task.</returns>
-        public static Task FastUnwrap(this Task<Task> task)
+        public static Task UnwrapTask(this Task<Task> task)
         {
             var innerTask = (task.Status == TaskStatus.RanToCompletion) ? task.Result : null;
             return innerTask ?? task.Unwrap();
@@ -254,7 +270,7 @@ namespace PresentationToolkit.Core.Common
                     // Conituation
                     return GenericRunner<object, Task, T1, T2, T3>
                         .Then(task, activator, arg1, arg2, arg3)
-                        .FastUnwrap();
+                        .UnwrapTask();
             }
         }
 
@@ -278,7 +294,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception exception)
             {
-                return From(exception);
+                return FromException(exception);
             }
         }
 

@@ -25,7 +25,7 @@ namespace PresentationToolkit.Core.Common
         public TaskQueue(int maximumSize = MaximumQueueSize)
         {
             this.maximumSize = maximumSize;
-            lastQueuedTask = AsyncTaskExtensions.Empty;
+            lastQueuedTask = TaskHelper.Empty;
         }
 
         /// <summary>
