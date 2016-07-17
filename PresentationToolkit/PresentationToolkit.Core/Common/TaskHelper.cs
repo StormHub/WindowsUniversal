@@ -16,28 +16,6 @@ namespace PresentationToolkit.Core.Common
         public static Task Empty => emptyTask;
 
         /// <summary>
-        /// Creates an empty task with the specified exception.
-        /// </summary>
-        /// <param name="exception">The <see cref="Exception"/> instance.</param>
-        /// <returns>The empty task with the specified exception.</returns>
-        public static Task FromException(Exception exception)
-        {
-            return FromException<object>(exception);
-        }
-
-        /// <summary>
-        /// Creates an empty task with the specified exception.
-        /// </summary>
-        /// <param name="exception">The <see cref="Exception"/> instance.</param>
-        /// <returns>The empty task with the specified exception.</returns>
-        public static Task<T> FromException<T>(Exception exception)
-        {
-            var completionSource = new TaskCompletionSource<T>();
-            completionSource.Unwrap<T>(exception);
-            return completionSource.Task;
-        }
-
-        /// <summary>
         /// Executes the action as task with the specified argument.
         /// </summary>
         /// <typeparam name="T1">The argument type.</typeparam>
@@ -53,7 +31,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception excption)
             {
-                return FromException(excption);
+                return Task.FromException(excption);
             }
         }
 
@@ -179,7 +157,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception exception)
             {
-                return FromException(exception);
+                return Task.FromException(exception);
             }
         }
 
@@ -294,7 +272,7 @@ namespace PresentationToolkit.Core.Common
             }
             catch (Exception exception)
             {
-                return FromException(exception);
+                return Task.FromException(exception);
             }
         }
 
