@@ -1,0 +1,7 @@
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\bin\Debug\PresentationToolkit.Core.Tests.dll
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\bin\Debug\PresentationToolkit.Core.Tests.pdb
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\obj\Debug\PresentationToolkit.Core.Tests.csprojResolveAssemblyReference.cache
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\obj\Debug\PresentationToolkit.Core.Tests.dll
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core.Tests\obj\Debug\PresentationToolkit.Core.Tests.pdb

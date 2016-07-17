@@ -1,0 +1,17 @@
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\bin\Debug\PresentationToolkit.Core.dll
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\bin\Debug\PresentationToolkit.Core.pdb
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\bin\Debug\PresentationToolkit.Core.pri
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\PresentationToolkit.Core.dll
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\PresentationToolkit.Core.pdb
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\priconfig.xml
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\priconfig.xml.intermediate
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\layout.resfiles
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\layout.resfiles.intermediate
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\resources.resfiles
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\resources.resfiles.intermediate
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\pri.resfiles
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\pri.resfiles.intermediate
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\qualifiers.txt
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\qualifiers.txt.intermediate
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+D:\Development\GitHubLocal\WindowsUniversal\PresentationToolkit\PresentationToolkit.Core\obj\Debug\PresentationToolkit.Core.csprojResolveAssemblyReference.cache
