@@ -8,12 +8,10 @@ namespace PresentationToolkit.Core.Common
     /// </summary>
     public static class TaskHelper
     {
-        private static readonly Task emptyTask = Task.FromResult<object>(null);
-
         /// <summary>
         /// Gets an empty task instance already completed.
         /// </summary>
-        public static Task Empty => emptyTask;
+        public static Task Empty { get; } = Task.FromResult<object>(null);
 
         /// <summary>
         /// Executes the action as task with the specified argument.

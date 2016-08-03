@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\MathExtensions.cs" />
     <Compile Include="Common\TaskHelper.cs" />
     <Compile Include="Common\TaskQueue.cs" />
     <Compile Include="Common\TimeTextExtensions.cs" />
