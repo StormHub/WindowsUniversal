@@ -31,13 +31,7 @@ namespace PresentationToolkit.Core.Common
         /// <summary>
         /// Indicates whether the queue is drained to the last.
         /// </summary>
-        public bool IsDrained
-        {
-            get
-            {
-                return drained;
-            }
-        }
+        public bool IsDrained => drained;
 
         /// <summary>
         /// Enqueues a task with the function to generate it.
